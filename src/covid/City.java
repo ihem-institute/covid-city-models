@@ -1,5 +1,8 @@
 package covid;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cern.jet.random.Exponential;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.random.RandomHelper;
@@ -11,9 +14,12 @@ public class City {
 	private ContinuousSpace<Object> space;
 	private Grid<Object> grid;
 	private int population, infected;
+	private String name;
 	private Exponential infectionPrevision = RandomHelper.createExponential(2);
+	private List<CityLink> links = new ArrayList<CityLink>();
 
-	public City(ContinuousSpace<Object> space, Grid<Object> grid, int population, int infected) {
+	public City(ContinuousSpace<Object> space, Grid<Object> grid, String name, int population, int infected) {
+		this.name = name;
 		this.space = space;
 		this.grid = grid;
 		this.setPopulation(population);
@@ -39,5 +45,21 @@ public class City {
 
 	public void setPopulation(int population) {
 		this.population = population;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<CityLink> getLinks() {
+		return links;
+	}
+
+	public void setLinks(List<CityLink> links) {
+		this.links = links;
 	}
 }
