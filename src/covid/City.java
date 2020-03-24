@@ -26,6 +26,10 @@ public class City {
 		this.setInfected(infected);
 	}
 
+	public String toString() {
+		return this.name;
+	}
+
 	@ScheduledMethod(start = 1, interval = 1)
 	public void step() {
 		this.setInfected(this.getInfected() + infectionPrevision.nextInt());
