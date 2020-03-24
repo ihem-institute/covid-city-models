@@ -46,34 +46,34 @@ public class CitiesBuilder implements ContextBuilder<Object> {
 		
 		City guaymallen = new City(space, grid, "Guaymallen", 280880, 0);
 		context.add(guaymallen);
-		new CityLink(capital, guaymallen);
+		new CityLink(capital, guaymallen, 10000);
 		
 		City las_heras = new City(space, grid, "Las Heras", 203507, 0);
 		context.add(las_heras);
-		new CityLink(capital, las_heras); 
+		new CityLink(capital, las_heras, 10000); 
 
 		City san_rafael = new City(space, grid, "San Rafael", 191323, 0);
 		context.add(san_rafael);
-		new CityLink(capital, san_rafael);
+		new CityLink(capital, san_rafael, 300);
 		
 		City godoy_cruz = new City(space, grid, "Godoy Cruz", 189578, 0);
 		context.add(godoy_cruz);
-		new CityLink(capital, godoy_cruz);
+		new CityLink(capital, godoy_cruz, 100000);
 		
 		City maipu = new City(space, grid, "Maipú", 172861, 0);
 		context.add(maipu);
-		new CityLink(capital, maipu);
-		new CityLink(godoy_cruz, maipu);
-		new CityLink(guaymallen, maipu);
+		new CityLink(capital, maipu, 5000);
+		new CityLink(godoy_cruz, maipu, 5000);
+		new CityLink(guaymallen, maipu, 5000);
 		
 		City lujan_cuyo = new City(space, grid, "Luján de Cuyo", 124418, 0);
 		context.add(lujan_cuyo);
-		new CityLink(capital, lujan_cuyo);
-		new CityLink(lujan_cuyo, maipu);
+		new CityLink(capital, lujan_cuyo, 8000);
+		new CityLink(lujan_cuyo, maipu, 3000);
 		
 		City san_martin = new City(space, grid, "San Martín", 118561, 0);
 		City rivadavia = new City(space, grid, "Rivadavia", 56269, 0);
-		City tunuyan = new City(space, grid, "Tunuyán", 49132, 0);
+		City tunuyan = new City(space, grid, "Tunuyan", 49132, 0);
 		City alvear = new City(space, grid, "General Alvear", 46156, 0);
 		City junin = new City(space, grid, "Junín", 37807, 0);
 		City lavalle = new City(space, grid, "Lavalle", 35895, 0);

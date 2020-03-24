@@ -7,10 +7,12 @@ public class CityLink {
 	private City end2;
 	
 	private int openessStrategy = 100; 
+	private int transitAverage = 0;
 
-	public CityLink(City end1, City end2) {
+	public CityLink(City end1, City end2, int transitAverage) {
 		this.end1 = end1;
 		this.end2 = end2;
+		this.transitAverage = transitAverage;
 		this.end1.getLinks().add(this);
 		this.end2.getLinks().add(this);
 	}
@@ -32,5 +34,9 @@ public class CityLink {
 
 	public void setOpenessStrategy(int openessStrategy) {
 		this.openessStrategy = openessStrategy;
+	}
+
+	public int getTransitAverage() {
+		return transitAverage;
 	}
 }

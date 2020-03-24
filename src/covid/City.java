@@ -36,8 +36,8 @@ public class City {
 		this.setInfected(this.getInfected() + infectionPrevision.nextInt());
 		
 		for (CityLink cityLink : links) {
-			int transitInfected = this.infected * (cityLink.getOpenessStrategy() / 100);
-			int transitPeople = 1000 * (cityLink.getOpenessStrategy() / 100);
+			int transitInfected = this.infected * (cityLink.getTransitAverage()/1000) * (cityLink.getOpenessStrategy() / 100);
+			int transitPeople = cityLink.getTransitAverage() * (cityLink.getOpenessStrategy() / 100);
 			
 			this.population -= transitPeople;
 			this.infected -= transitInfected;
