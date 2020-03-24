@@ -5,6 +5,8 @@ public class CityLink {
 	
 	private City end1;
 	private City end2;
+	
+	private int openessStrategy = 100; 
 
 	public CityLink(City end1, City end2) {
 		this.end1 = end1;
@@ -22,5 +24,13 @@ public class CityLink {
 	}
 	public String toString() {
 		return this.end1.getName() + '-' + this.end2.getName();
+	}
+
+	public int getOpenessStrategy() {
+		return openessStrategy;
+	}
+
+	public void setOpenessStrategy(int openessStrategy) {
+		this.openessStrategy = openessStrategy;
 	}
 }

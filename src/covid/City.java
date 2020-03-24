@@ -1,6 +1,7 @@
 package covid;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import cern.jet.random.Exponential;
@@ -22,8 +23,8 @@ public class City {
 		this.name = name;
 		this.space = space;
 		this.grid = grid;
-		this.setPopulation(population);
-		this.setInfected(infected);
+		this.population = population;
+		this.infected = infected;
 	}
 
 	public String toString() {
@@ -33,6 +34,24 @@ public class City {
 	@ScheduledMethod(start = 1, interval = 1)
 	public void step() {
 		this.setInfected(this.getInfected() + infectionPrevision.nextInt());
+		
+		for (CityLink cityLink : links) {
+			int transitInfected = this.infected * (cityLink.getOpenessStrategy() / 100);
+			int transitPeople = 1000 * (cityLink.getOpenessStrategy() / 100);
+			
+			this.population -= transitPeople;
+			this.infected -= transitInfected;
+			
+			cityLink.getOtherCity(this).transit(
+				transitPeople,  
+				transitInfected
+			);
+		}
+	}
+
+	private void transit(int transitPeople, int transitInfected) {
+		this.infected += transitInfected;
+		this.population += transitPeople;
 	}
 
 	public int getInfected() {
