@@ -73,7 +73,7 @@ public class CitiesBuilder implements ContextBuilder<Object> {
 		
 		City san_martin = new City(space, grid, "San Martín", 118561, 0);
 		City rivadavia = new City(space, grid, "Rivadavia", 56269, 0);
-		City tunuyán = new City(space, grid, "Tunuyán", 49132, 0);
+		City tunuyan = new City(space, grid, "Tunuyán", 49132, 0);
 		City alvear = new City(space, grid, "General Alvear", 46156, 0);
 		City junin = new City(space, grid, "Junín", 37807, 0);
 		City lavalle = new City(space, grid, "Lavalle", 35895, 0);
