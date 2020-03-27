@@ -1,25 +1,12 @@
 package covid;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Covid {
 
 	public static void main(String[] args) {
-		int t = 0;
-		double[] x = {
-			0.9999998571428571,
-			0,
-			0.00000001428571428571429, // e-7??
-			0,
-			0,
-			0,
-			0,
-			0,
-			0,
-			0	
-		};
-		double[] f = new Covid().f(t, x );
-		for (int i = 0; i < f.length; i++) {
-			System.out.println(f[i]);			
-		}
+		new Covid().integrate();		
 	}
 
 	long Time_to_death = 32;
@@ -59,7 +46,32 @@ public class Covid {
 //		get_d =  undefined
 //		milestones =  undefined
 	boolean log = true;
-
+	
+	public void integrate() {
+		double [] SEIR20 = {1-I0/N, 0, I0/N, 0, 0, 0, 0, 0, 0, 0};
+		double NSTEPS = 10000;
+		double TTOT = 200;
+		
+		List<double []> output = new ArrayList<double[]>();
+		
+//		sol2 = np.zeros((NSTEPS,10))
+		
+		double[] lastSeir = SEIR20.clone();
+		output.add(lastSeir.clone());
+		for(int t = 0; t <= NSTEPS; t++) {
+			double[] result = f(t, lastSeir);
+			double [] subTotal = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+			for(int index = 0; index < 10; index ++) {
+				subTotal[index] = (TTOT/NSTEPS) * result[index];
+				lastSeir[index] = lastSeir[index] + subTotal[index];
+				System.out.print(lastSeir[index]+", ");
+			}
+			System.out.println();
+			output.add(lastSeir.clone());
+		}
+	}
+	
+	
 	public double [] f(int t, double[] x){
 
 	      // SEIR ODE
