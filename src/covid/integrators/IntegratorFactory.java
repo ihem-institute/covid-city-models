@@ -6,7 +6,7 @@ public class IntegratorFactory {
 
 	public static Integrator getIntegrator(IntegrationMethod integrationMethod) {
 		switch (integrationMethod) {
-		case RK:
+		case RK4:
 			return new RungeKuttaIntegrator();
 		default:
 			throw new RuntimeException("Integration method not implemented");

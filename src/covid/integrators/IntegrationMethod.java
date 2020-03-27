@@ -1,5 +1,5 @@
 package covid.integrators;
 
 public enum IntegrationMethod {
-	RK
+	RK4
 }
