@@ -1,0 +1,76 @@
+<repast.simphony.data2.engine.DataSetDescriptor simphonyVersion="2.7.0">
+  <name>City Data Sets</name>
+  <type>AGGREGATE</type>
+  <inclTick>true</inclTick>
+  <inclBatchRun>false</inclBatchRun>
+  <inclRandomSeed>false</inclRandomSeed>
+  <scheduleParams>
+    <start>1.0</start>
+    <interval>1.0</interval>
+    <priority>-Infinity</priority>
+    <pType>LAST</pType>
+    <duration>-1.0</duration>
+    <frequency>REPEAT</frequency>
+    <hashCode>1393119907</hashCode>
+  </scheduleParams>
+  <atEnd>false</atEnd>
+  <methodDataSources class="linked-hash-map">
+    <entry>
+      <string>Dead</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Dead</id>
+        <className>covid.City</className>
+        <methodName>getDead</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Exposed</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Exposed</id>
+        <className>covid.City</className>
+        <methodName>getExposed</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Hospital</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Hospital</id>
+        <className>covid.City</className>
+        <methodName>getHospital</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Infected</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Infected</id>
+        <className>covid.City</className>
+        <methodName>getInfected</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Recovered</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Recovered</id>
+        <className>covid.City</className>
+        <methodName>getRecovered</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+    <entry>
+      <string>Infectious</string>
+      <repast.simphony.data2.engine.MethodDataSourceDefinition>
+        <id>Infectious</id>
+        <className>covid.City</className>
+        <methodName>getInfectious</methodName>
+        <aggType>SUM</aggType>
+      </repast.simphony.data2.engine.MethodDataSourceDefinition>
+    </entry>
+  </methodDataSources>
+  <countSources class="linked-hash-map"/>
+  <customNADataSources class="linked-hash-map"/>
+  <customAggDataSources class="linked-hash-map"/>
+</repast.simphony.data2.engine.DataSetDescriptor>

@@ -16,8 +16,8 @@ public class City {
 
 	private ContinuousSpace<Object> space;
 	private Grid<Object> grid;
-	private long population;
-	private long infected;
+	private double population;
+	private double infected;
 	private String name;
 	private Exponential infectionPrevision = RandomHelper.createExponential(2);
 	private List<CityLink> links = new ArrayList<CityLink>();
@@ -34,6 +34,7 @@ public class City {
 		this.grid = grid;
 		this.population = population;
 		this.infected = infected;
+		this.lastSeir[0] = 1 - (this.infected / this.population);
 	}
 
 	public String toString() {
@@ -57,7 +58,7 @@ public class City {
 		
 //		this.population -= transitPeople;
 		this.infected = (int) (this.population * (1-this.lastSeir[0]));
-
+				 		
 		for (CityLink cityLink : links) {
 //			int transitInfected = this.infected * (cityLink.getTransitAverage()/1000) * (cityLink.getOpenessStrategy() / 100);
 //			int transitPeople = cityLink.getTransitAverage() * (cityLink.getOpenessStrategy() / 100);
@@ -92,11 +93,11 @@ public class City {
 		this.infected = infected;
 	}
 
-	public long getPopulation() {
+	public double getPopulation() {
 		return population;
 	}
 
-	public void setPopulation(int population) {
+	public void setPopulation(double population) {
 		this.population = population;
 	}
 

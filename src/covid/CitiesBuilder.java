@@ -41,14 +41,14 @@ public class CitiesBuilder implements ContextBuilder<Object> {
 
 		Parameters params = RunEnvironment.getInstance().getParameters();
 		
-		City capital = new City(space, grid, "Capital", 114822, 0);
+		City capital = new City(space, grid, "Capital", 114822, 100);
 		context.add(capital);
 		
-		City guaymallen = new City(space, grid, "Guaymallen", 280880, 0);
+		City guaymallen = new City(space, grid, "Guaymallen", 280880, 10);
 		context.add(guaymallen);
 		new CityLink(capital, guaymallen, 10000);
 		
-		City las_heras = new City(space, grid, "Las Heras", 203507, 0);
+		City las_heras = new City(space, grid, "Las Heras", 203507, 10);
 		context.add(las_heras);
 		new CityLink(capital, las_heras, 10000); 
 

@@ -22,14 +22,14 @@ public class Covid {
 	static double D_hospital_lag = 5;
 	static double D_death = 29.1;
 	static double CFR = 0.02;
-	double InterventionTime = 100;
+	static double InterventionTime = 100;
 	double OMInterventionAmt = 0.6666666666666666;
-	double InterventionAmt = 0.33333333333333337;
+	static double InterventionAmt = 0.33333333333333337;
 	double Time = 220;
 	double Xmax = 110000;
 	double dt = 2;
 	static double P_SEVERE = 0.2;
-	long duration = 840000000000L;
+	static long duration = 840000000000L;
 //		state =  "http = //gabgoh.github.io/COVID/index.html?CFR=0.02&D_hospital_lag=5&D_incbation=5.2&D_infectious=2.9&D_recovery_mild=11.1&D_recovery_severe=28.6&I0=1&InterventionAmt=0.33333333333333337&InterventionTime=100&P_SEVERE=0.2&R0=2.2&Time_to_death=32&logN=15.761420707019587"
 //		Sol =  undefined
 //		P =  undefined
@@ -86,13 +86,13 @@ public class Covid {
 
 	      // SEIR ODE
 	      double beta;
-//		if (t > InterventionTime && t < InterventionTime + duration){
-//	        beta = (InterventionAmt)*R0/(D_infectious);
-//	      } else if (t > InterventionTime + duration) {
-//	        beta = 0.5*R0/(D_infectious);        
-//	      } else {
+		if (t > InterventionTime && t < InterventionTime + duration){
+	        beta = (InterventionAmt)*R0/(D_infectious);
+	      } else if (t > InterventionTime + duration) {
+	        beta = 0.5*R0/(D_infectious);        
+	      } else {
 	        beta = R0/(D_infectious);
-//	      }
+	      }
 	      double a = 1/D_incbation;
 	      double gamma = 1/D_infectious;
 	      
