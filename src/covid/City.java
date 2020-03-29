@@ -47,7 +47,7 @@ public class City {
 		ISchedule schedule = RunEnvironment.getInstance().getCurrentSchedule();
 		int tickCount = (int) schedule.getTickCount() % 1000000000;
 
-		Covid.apply_integration(this.lastSeir, 0.5, 0);
+		Covid.apply_integration(this.lastSeir, 0.5, tickCount);
 		
         //    
 		this.dead = (long) (this.population * this.lastSeir[9]);  
